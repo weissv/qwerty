@@ -1,0 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 35 10% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 35 10% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 35 10% 16%;
+
+    --primary: 30 40% 35%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 24 36% 94%;
+    --secondary-foreground: 30 40% 35%;
+
+    --muted: 24 8% 92%;
+    --muted-foreground: 35 7% 40%;
+
+    --accent: 24 36% 94%;
+    --accent-foreground: 30 40% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 10% 85%;
+    --input: 35 10% 85%;
+    --ring: 35 30% 75%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-potato-600 text-white px-6 py-3 rounded-md hover:bg-potato-700 transition-all duration-300 shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-potato-600 text-potato-600 px-6 py-3 rounded-md hover:bg-potato-50 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-medium mb-8 tracking-tight;
+  }
+  
+  .section-subtitle {
+    @apply font-sans text-lg md:text-xl text-muted-foreground max-w-2xl mb-12;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm border border-white/10 shadow-sm;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add smooth reveal animation for page load */
+.page-reveal {
+  animation: page-reveal 0.8s ease-out forwards;
+}
+
+@keyframes page-reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
